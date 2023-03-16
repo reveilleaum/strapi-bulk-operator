@@ -1,3 +1,35 @@
+<!-- @format -->
+
 # Strapi plugin bulk-operator
 
-A quick description of bulk-operator.
+### Description
+
+This plugin allows you to create and update multiple entries from .xls or .xlsx file
+
+![Alt Text](https://www.matthieu-reveilleau.fr/works/strapi-bulk-operator.gif)
+
+### Installation
+
+Install strapi-bulk-operator
+
+```
+yarn add strapi-bulk-operator
+```
+
+Install xlsx
+
+```
+yarn add xlsx
+```
+
+Import the plugin in your /config/plugins.js
+
+```
+module.exports = () => ({
+  ...
+  bulkoperator: {
+    enabled: true,
+    resolve: "strapi-bulk-operator",
+  }
+});
+```

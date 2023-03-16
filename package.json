@@ -1,12 +1,12 @@
 {
-  "name": "bulk-operator",
-  "version": "0.0.0",
-  "description": "Make bulk operations from CSV",
+  "name": "strapi-bulk-operator",
+  "version": "0.0.1",
+  "description": "Make bulk operations from .xls or .xlsx file",
   "strapi": {
-    "name": "bulk-operator",
-    "description": "Make bulk operations from CSV",
+    "name": "strapi-bulk-operator",
+    "description": "Make bulk operations from .xls or .xlsx file",
     "kind": "plugin",
-    "displayName": "Bulk Operator"
+    "displayName": "Bulk operator"
   },
   "dependencies": {
     "@strapi/design-system": "^1.6.3",
@@ -26,17 +26,25 @@
     "react-router-dom": "^5.3.4",
     "styled-components": "^5.3.6"
   },
-  "author": {
-    "name": "A Strapi developer"
-  },
+  "author": "Matthieu Reveilleau",
   "maintainers": [
-    {
-      "name": "A Strapi developer"
-    }
+    "Matthieu Reveilleau"
   ],
   "engines": {
     "node": ">=14.19.1 <=18.x.x",
     "npm": ">=6.0.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "main": "strapi-admin.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reveilleaum/strapi-bulk-operator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/reveilleaum/strapi-bulk-operator/issues"
+  },
+  "homepage": "https://github.com/reveilleaum/strapi-bulk-operator#readme"
 }

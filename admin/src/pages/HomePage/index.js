@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { useState, useMemo, useEffect } from "react";
 import {
   getContentTypes,
@@ -16,6 +18,7 @@ import UploadBtn from "../../components/UploadBtn";
 import Button from "../../components/Button";
 import ExcelIcon from "../../components/ExcelIcon";
 import Alert from "../../components/Alert";
+import Modal from "../../components/Modal";
 
 const HomePage = () => {
   const darkMode = document
@@ -31,6 +34,7 @@ const HomePage = () => {
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
   const [errorLogs, setErrorLogs] = useState([]);
+  const [modal, setModal] = useState(false);
 
   const titleClassName = useMemo(() => {
     return `main-title ${darkMode ? "dark-mode" : null}`;
@@ -123,10 +127,13 @@ const HomePage = () => {
 
   useEffect(() => {
     getContentTypes().then((res) => {
-      Object.keys(res.data).forEach((key) => {
-        if (!res.data[key].plugin && res.data[key].kind === "collectionType")
+      const collections = Object.keys(res.data).filter((key) => {
+        if (!res.data[key].plugin && res.data[key].kind === "collectionType") {
           setCollectionTypes((init) => [...init, res.data[key]]);
+          return true;
+        }
       });
+      if (!collections.length) setModal(true);
     });
   }, []);
 
@@ -181,6 +188,11 @@ const HomePage = () => {
                 </a>
               ) : null}
             </Alert>
+          )}
+          {modal && (
+            <Modal>
+              <p>You must have one collection type created at least</p>
+            </Modal>
           )}
         </div>
       </div>
