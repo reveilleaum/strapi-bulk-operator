@@ -1,0 +1,72 @@
+.select-btn {
+  border: solid 1px var(--light-border-color);
+  border-radius: 4px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  height: 1.8rem;
+}
+.select-btn.dark-mode {
+  border-color: var(--dark-border-color);
+}
+.select-btn span {
+  border-right: solid 1px var(--light-border-color);
+  padding-right: 16px;
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+.select-btn.dark-mode span {
+  border-color: var(--dark-border-color);
+}
+.select-btn::after {
+  content: "";
+  border-style: solid;
+  border-width: 1px 1px 0 0;
+  border-color: 1px 1px 0 0;
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  position: relative;
+  transform: rotate(135deg);
+  vertical-align: top;
+  top: -2px;
+  left: 2px;
+  margin-left: 12px;
+}
+
+.select-options {
+  background: var(--light-secondary-background);
+  display: inline-flex;
+  flex-direction: column;
+  border-radius: 4px;
+  margin-top: 6px;
+  box-shadow: 0px 1px 4px var(--box-shadow-color-hard);
+  position: absolute;
+  max-height: 200px;
+  overflow: auto;
+  z-index: 1;
+}
+.select-options.dark-mode {
+  background: var(--dark-secondary-background);
+  border: solid 1px var(--dark-border-color);
+}
+.select-options span {
+  padding: 0 16px;
+  line-height: 1.8rem;
+  cursor: pointer;
+}
+.select-options span:hover {
+  background-color: var(--light-main-background);
+}
+.select-options.dark-mode span:hover {
+  background-color: var(--dark-secondary-color);
+}
+.closer {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}

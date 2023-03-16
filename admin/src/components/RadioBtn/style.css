@@ -1,0 +1,32 @@
+.radio span {
+  display: flex;
+  align-items: center;
+  line-height: 1.5;
+  cursor: pointer;
+  position: relative;
+  width: fit-content;
+}
+.radio span::before {
+  content: "";
+  position: relative;
+  width: 14px;
+  height: 14px;
+  border: solid 1px var(--light-border-color);
+  border-radius: 100%;
+  margin-right: 6px;
+}
+.radio.dark-mode span::before {
+  border-color: var(--dark-border-color);
+}
+.radio span.active::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  left: 3px;
+  border: solid 4px var(--light-border-color);
+  border-radius: 100%;
+}
+.radio.dark-mode span::after {
+  border-color: var(--dark-border-color);
+}

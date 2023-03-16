@@ -1,0 +1,24 @@
+body {
+  --light-main-color: rgb(50, 50, 77);
+  --light-secondary-color: rgb(102, 102, 135);
+  --light-main-background: rgb(246, 246, 249);
+  --light-secondary-background: rgb(255, 255, 255);
+  --light-border-color: rgb(220, 220, 228);
+  --light-button-color: rgb(240, 240, 255);
+  --light-button-border-color: rgb(217, 216, 255);
+  --light-strapi-color: rgb(39, 31, 224);
+
+  --dark-main-color: rgb(255, 255, 255);
+  --dark-secondary-color: rgb(165, 165, 186);
+  --dark-main-background: rgb(24, 23, 39);
+  --dark-secondary-background: rgb(33, 33, 52);
+  --dark-border-color: rgb(74, 74, 106);
+  --dark-button-color: rgb(24, 24, 38);
+  --dark-button-border-color: rgb(74, 74, 106);
+  --dark-strapi-color: rgb(123, 121, 255);
+
+  --box-shadow-color-soft: rgba(33, 33, 52, 0.1);
+  --box-shadow-color-hard: rgba(33, 33, 52, 0.5);
+  --success-color: rgb(0, 128, 0);
+  --error-color: rgb(255, 0, 0);
+}

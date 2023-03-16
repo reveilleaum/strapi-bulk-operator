@@ -1,0 +1,44 @@
+.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.upload-field {
+  height: 150px;
+  border-radius: 4px;
+  border: 1px dashed var(--light-border-color);
+  position: relative;
+}
+.upload-field.dark-mode {
+  border-color: var(--dark-border-color);
+}
+
+.upload-field input {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.upload-field input::-webkit-file-upload-button {
+  display: none;
+}
+
+.upload-field .icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+  opacity: 0.2;
+}
+.upload-field .icon.uploaded {
+  opacity: 1;
+}
+.upload-field .icon svg {
+  width: 40px;
+  margin: auto;
+}

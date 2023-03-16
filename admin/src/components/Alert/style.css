@@ -1,0 +1,15 @@
+.alerts {
+  margin-bottom: 20px;
+}
+.alerts .error {
+  color: var(--error-color);
+}
+.alerts .success {
+  color: var(--success-color);
+}
+.alerts .logs {
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 10px;
+  display: inline-block;
+}
