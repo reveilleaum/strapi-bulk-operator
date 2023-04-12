@@ -3,7 +3,14 @@
 module.exports = ({ strapi }) => ({
   async exportEntries(ctx) {
     const { query } = JSON.parse(ctx.request.body);
-    const entries = await strapi.entityService.findMany(query);
+
+    const i18n = await strapi.plugins.i18n.services.locales.find();
+    const locales = i18n.map(locale => locale.code)
+
+    const entries = await strapi.entityService.findMany(query, {
+      locale: locales,
+    });
+
     return {
       data: entries,
     };
@@ -47,7 +54,12 @@ module.exports = ({ strapi }) => ({
     const success = [];
     const error = [];
 
-    const createdEntries = await strapi.entityService.findMany(query);
+    const i18n = await strapi.plugins.i18n.services.locales.find();
+    const locales = i18n.map(locale => locale.code)
+
+    const createdEntries = await strapi.entityService.findMany(query, {
+      locale: locales,
+    });
     const createdEntriesIds = createdEntries.map((entry) => entry.id);
     const toUpdate = data.filter((item) => createdEntriesIds.includes(item.id));
 
