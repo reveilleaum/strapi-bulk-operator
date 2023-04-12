@@ -1,6 +1,6 @@
 {
   "name": "strapi-bulk-operator",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Make bulk operations from .xls or .xlsx file",
   "strapi": {
     "name": "strapi-bulk-operator",
