@@ -1,4 +1,4 @@
-import XLSX from "xlsx";
+const XLSX = require("xlsx");
 
 export const excelToJson = (file, action) => {
   const reader = new FileReader();
