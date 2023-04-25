@@ -1,3 +1,5 @@
+/** @format */
+
 "use strict";
 
 module.exports = ({ strapi }) => ({
@@ -5,14 +7,27 @@ module.exports = ({ strapi }) => ({
     const { query } = JSON.parse(ctx.request.body);
 
     const i18n = await strapi.plugins.i18n.services.locales.find();
-    const locales = i18n.map(locale => locale.code)
+    const locales = i18n.map((locale) => locale.code);
 
     const entries = await strapi.entityService.findMany(query, {
       locale: locales,
+      populate: {
+        localizations: "*",
+      },
     });
 
     return {
-      data: entries,
+      data: entries.map((entry) => {
+        if (entry.localizations) {
+          return {
+            ...entry,
+            localizations: entry.localizations
+              .map((localization) => localization.id)
+              .toString(),
+          };
+        }
+        return entry;
+      }),
     };
   },
   async createEntries(ctx) {
@@ -26,7 +41,7 @@ module.exports = ({ strapi }) => ({
         await strapi.entityService.create(query, {
           data: {
             ...item,
-            id: null
+            localizations: null,
           },
         });
         success.push({
@@ -58,7 +73,7 @@ module.exports = ({ strapi }) => ({
     const error = [];
 
     const i18n = await strapi.plugins.i18n.services.locales.find();
-    const locales = i18n.map(locale => locale.code)
+    const locales = i18n.map((locale) => locale.code);
 
     const createdEntries = await strapi.entityService.findMany(query, {
       locale: locales,
@@ -78,7 +93,17 @@ module.exports = ({ strapi }) => ({
     for (const item of toUpdate) {
       try {
         await strapi.entityService.update(query, item.id, {
-          data: item,
+          data: item.localizations
+            ? {
+                ...item,
+                localizations: item.localizations.toString().includes(",")
+                  ? item.localizations
+                      .toString()
+                      .split(",")
+                      .map((id) => ({ id }))
+                  : [{ id: item.localizations }],
+              }
+            : item,
         });
         success.push({
           id: item.id,
