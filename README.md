@@ -33,3 +33,7 @@ module.exports = () => ({
   }
 });
 ```
+
+### Components / Relations / Localizations
+
+Creating or updating entries components/relations/localizations is not yet possible. These features will be coming up in the next plugin versions.
