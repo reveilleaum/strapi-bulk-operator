@@ -26,7 +26,6 @@ module.exports = ({ strapi }) => ({
         await strapi.entityService.create(query, {
           data: {
             ...item,
-            id: null
           },
         });
         success.push({
